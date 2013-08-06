@@ -86,7 +86,7 @@ module IBANTools
     
     def cin( rules = IBAN.default_rules )
       if rules[country_code]['sub_pattern']
-        m[1] if m = @code.match(/#{rules[country_code]['sub_pattern']}/)
+        m[1] if m = bban.match(/#{rules[country_code]['sub_pattern']}/)
       else
         raise "Not implemented yet"
       end
@@ -94,7 +94,15 @@ module IBANTools
     
     def abi( rules = IBAN.default_rules )
       if rules[country_code]['sub_pattern']
-        m[2] if m = @code.match(/#{rules[country_code]['sub_pattern']}/)
+        m[2] if m = bban.match(/#{rules[country_code]['sub_pattern']}/)
+      else
+        raise "Not implemented yet"
+      end
+    end
+    
+    def cab( rules = IBAN.default_rules )
+      if rules[country_code]['sub_pattern']
+        m[3] if m = bban.match(/#{rules[country_code]['sub_pattern']}/)
       else
         raise "Not implemented yet"
       end
@@ -102,7 +110,7 @@ module IBANTools
     
     def cc( rules = IBAN.default_rules )
       if rules[country_code]['sub_pattern']
-        m[3] if m = @code.match(/#{rules[country_code]['sub_pattern']}/)
+        m[4] if m = bban.match(/#{rules[country_code]['sub_pattern']}/)
       else
         raise "Not implemented yet"
       end
