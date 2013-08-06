@@ -84,7 +84,7 @@ module IBANTools
       @default_rules ||= IBANRules.defaults
     end
     
-    def cin
+    def cin( rules = IBAN.default_rules )
       if rules[country_code]['sub_pattern']
         m[1] if m = @code.match(/#{rules[country_code]['sub_pattern']}/)
       else
@@ -92,7 +92,7 @@ module IBANTools
       end
     end
     
-    def abi
+    def abi( rules = IBAN.default_rules )
       if rules[country_code]['sub_pattern']
         m[2] if m = @code.match(/#{rules[country_code]['sub_pattern']}/)
       else
@@ -100,7 +100,7 @@ module IBANTools
       end
     end
     
-    def cc
+    def cc( rules = IBAN.default_rules )
       if rules[country_code]['sub_pattern']
         m[3] if m = @code.match(/#{rules[country_code]['sub_pattern']}/)
       else
