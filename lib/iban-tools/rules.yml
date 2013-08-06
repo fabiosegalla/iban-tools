@@ -149,6 +149,7 @@
   # Italy
   length: 27
   bban_pattern: '[A-Z]\d{10}[A-Z0-9]{12}'
+  sub_pattern: '([A-Z])(\\d{5})(\\d{5})([A-Z0-9]{12})'
 
 'KW':
   # Kuwait

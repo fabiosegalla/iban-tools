@@ -83,6 +83,30 @@ module IBANTools
     def self.default_rules
       @default_rules ||= IBANRules.defaults
     end
+    
+    def cin
+      if rules[country_code]['sub_pattern']
+        m[1] if m = @code.match(/#{rules[country_code]['sub_pattern']}/)
+      else
+        raise "Not implemented yet"
+      end
+    end
+    
+    def abi
+      if rules[country_code]['sub_pattern']
+        m[2] if m = @code.match(/#{rules[country_code]['sub_pattern']}/)
+      else
+        raise "Not implemented yet"
+      end
+    end
+    
+    def cc
+      if rules[country_code]['sub_pattern']
+        m[3] if m = @code.match(/#{rules[country_code]['sub_pattern']}/)
+      else
+        raise "Not implemented yet"
+      end
+    end
 
   end
 end
